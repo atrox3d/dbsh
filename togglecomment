@@ -1,0 +1,12 @@
+if [ $# -eq 3 ]
+then
+	if [ $2 == inplace ]
+	then
+		sed -i$3 "s/^#//;t;s/^/#/" $1
+	else
+		echo "syntax: togglecomment filename [ inplace .ext ]"
+	fi
+else
+	sed "s/^#//;t;s/^/#/" $1
+fi
+
