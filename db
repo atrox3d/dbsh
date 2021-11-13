@@ -1,0 +1,91 @@
+function syntax()
+{
+	echo "syntax: db find|add|del[ete]|update|get key [value]"
+}
+
+
+[ $# -ge 2 ] || { syntax; exit 1; }
+
+here="$(dirname ${BASH_SOURCE[0]})"
+db=${here}/db.txt
+
+function checkparams()
+{
+	command=$1
+	key="$2"
+
+	case $command in
+		find)
+			min_params=2
+			script=${here}/findkey
+		;;
+		add)
+			min_params=3
+			value="$3"
+			script=${here}/addkey
+		;;
+		del|delete)
+			min_params=2
+			script=${here}/deletekey
+		;;
+		update)
+			min_params=3
+			value="$3"
+			script=${here}/updatekey
+		;;
+		get)
+			min_params=2
+			script=${here}/getkey
+		;;
+		search)
+			min_params=2
+			script=${here}/search
+		;;
+		isearch)
+			min_params=2
+			script=${here}/isearch
+		;;
+		*)
+			syntax
+			exit 2
+		;;
+	esac
+
+	[ $# -ge $min_params ] || { syntax; exit 3; }
+}
+
+checkparams "$@"
+
+case $command in
+	find)
+		${here}/findkey "$key" "$db"
+	;;
+	add)
+		if ! ${here}/findkey "$key" "$db"
+		then
+			${here}/addkey "$key" "$value" "$db"
+		else
+			echo "key "$key" exists!"
+			exit 3
+		fi
+	;;
+	del|delete)
+		${here}/deletekey "$key" "$db"
+	;;
+	update)
+		${here}/updatekey "$key" "$value" "$db"
+	;;
+	get)
+		${here}/getkey "$key" "$db"
+	;;
+	search)
+		${here}/search "$key" "$db"
+	;;
+	isearch)
+		${here}/isearch "$key" "$db"
+	;;
+	*)
+		syntax
+		exit 2
+	;;
+esac

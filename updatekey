@@ -1,0 +1,5 @@
+here="$(dirname ${BASH_SOURCE[0]})"
+
+"${here}"/deletekey "$1" "$3"
+"${here}"/addkey "$1" "$2" "$3"
+
