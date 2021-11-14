@@ -1,4 +1,22 @@
 #!/bin/sh
 
+#
+#	default args
+#
+here="$(dirname ${BASH_SOURCE[0]})"
+db="${here}/db.txt"
+#
+#	optional args
+#
+[ $# -gt 1 ] && db="$2"
+
+#
+#	sed 
+#	-i.save 	backup to $2.save
+#	'/^'		find at the beginning
+#		"$1"	key
+#	'/d' 		delete line
+#	"$2"		filename
+#
 sed -i.save '/^'"$1"'/d' "$2"
 
