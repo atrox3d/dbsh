@@ -1,3 +1,5 @@
+#!/bin/sh
+
 if [ $# -eq 3 ]
 then
 	if [ $2 == inplace ]

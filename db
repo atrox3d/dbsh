@@ -1,3 +1,5 @@
+#!/bin/sh
+
 function syntax()
 {
 	echo "syntax: db find|add|del[ete]|update|get key [value]"
