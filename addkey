@@ -1,5 +1,21 @@
+#!/bin/sh
+
+#
+#	default args
+#
+here="$(dirname ${BASH_SOURCE[0]})"
+db="${here}/db.txt"
+delim="\t"
+#
+#	optional args
+#
 [ $# -gt 2 ] && db="$3"
 [ $# -gt 3 ] && delim="$4"
+#
+#	values
+#
+key="$1"
+value="$2"
 
-echo -e "$1\t$2" >> "$3"
+echo -e "${key}${delim}${value}" >> "$db"
 
