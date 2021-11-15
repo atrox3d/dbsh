@@ -10,7 +10,7 @@ delim=$'\t'
 #	optional args
 #
 [ $# -gt 1 ] && db="$2"
-[ $# -gt 2 ] && delim="$3"
+[ $# -gt 2 ] && delim="$(echo -e "$3")"
 
 key="$1"
 
