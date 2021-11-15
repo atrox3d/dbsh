@@ -1,5 +1,6 @@
 #!/bin/sh
 
+#	https://www.gnu.org/software/sed/manual/html_node/Branching-and-flow-control.html
 #
 #	s			:	substitute
 #	/^#//       :	hashtag at beginnig of line with nothing (delete)
