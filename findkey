@@ -1,5 +1,16 @@
 #!/bin/sh
 
-grep "^$1" "$2" && exit 0 || exit 1
+#
+#	default args
+#
+here="$(dirname ${BASH_SOURCE[0]})"
+db="${here}/db.txt"
+#
+#	optional args
+#
+[ $# -gt 2 ] && db="$2"
+
+key="$1"
+grep "^$1" "$db" && exit 0 || exit 1
 
 
