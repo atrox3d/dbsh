@@ -11,6 +11,6 @@ db="${here}/db.txt"
 [ $# -gt 2 ] && db="$2"
 
 key="$1"
-grep "^$1" "$db" && exit 0 || exit 1
+grep "^$key" "$db" > /dev/null && exit 0 || exit 1
 
 

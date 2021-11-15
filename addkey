@@ -18,5 +18,11 @@ delim="\t"
 key="$1"
 value="$2"
 
-echo -e "${key}${delim}${value}" >> "$db"
+if ! ${here}/findkey "$key" "$db"
+then
+	echo -e "${key}${delim}${value}" >> "$db"
+else
+	echo "key "$key" exists!"
+	exit 3
+fi
 

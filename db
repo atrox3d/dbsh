@@ -19,33 +19,26 @@ function checkparams()
 	case $command in
 		find)
 			min_params=2
-			script=${here}/findkey
 		;;
 		add)
 			min_params=3
 			value="$3"
-			script=${here}/addkey
 		;;
 		del|delete)
 			min_params=2
-			script=${here}/deletekey
 		;;
 		update)
 			min_params=3
 			value="$3"
-			script=${here}/updatekey
 		;;
 		get)
 			min_params=2
-			script=${here}/getkey
 		;;
 		search)
 			min_params=2
-			script=${here}/search
 		;;
 		cs-search)
 			min_params=2
-			script=${here}/cs-search
 		;;
 		*)
 			syntax
@@ -63,13 +56,7 @@ case $command in
 		${here}/findkey "$key" "$db"
 	;;
 	add)
-		if ! ${here}/findkey "$key" "$db"
-		then
-			${here}/addkey "$key" "$value" "$db"
-		else
-			echo "key "$key" exists!"
-			exit 3
-		fi
+		${here}/addkey "$key" "$value" "$db"
 	;;
 	del|delete)
 		${here}/deletekey "$key" "$db"
