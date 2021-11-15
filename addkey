@@ -10,7 +10,8 @@ delim="\t"
 #	optional args
 #
 [ $# -gt 2 ] && db="$3"
-[ $# -gt 3 ] && delim="$4"
+[ $# -gt 3 ] && delim="$(echo -e "$4")"
+
 #
 #	values
 #
