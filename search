@@ -1,3 +1,15 @@
 #!/bin/sh
 
-sed -n /"$1"/p "$2"
+#
+#	default args
+#
+here="$(dirname ${BASH_SOURCE[0]})"
+db="${here}/db.txt"
+#
+#	optional args
+#
+[ $# -gt 1 ] && db="$2"
+
+key="$1"
+
+sed -n /"$key"/Ip "$db"
