@@ -1,5 +1,14 @@
 #!/bin/sh
 
+#
+#	s			:	substitute
+#	/^#//       :	hashtag at beginnig of line with nothing (delete)
+#	;           :
+#	t           :	if successful start next cycle (else)
+#	;           : 
+#	s           :	substitute
+#	/^/#/       :	start-of-line with hashtag (insert)
+#
 if [ $# -eq 3 ]
 then
 	if [ $2 == inplace ]
