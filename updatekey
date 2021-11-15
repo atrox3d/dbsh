@@ -1,7 +1,20 @@
 #!/bin/sh
 
+#
+#	default args
+#
 here="$(dirname ${BASH_SOURCE[0]})"
+db="${here}/db.txt"
+delim=$'\t'
+#
+#	optional args
+#
+[ $# -gt 2 ] && db="$3"
+[ $# -gt 3 ] && delim="$(echo -e "$4")"
 
-"${here}"/deletekey "$1" "$3"
-"${here}"/addkey "$1" "$2" "$3"
+key="$1"
+newvalue="$2"
+
+"${here}"/deletekey "$key" "$db" "$delim"
+"${here}"/addkey "$key" "$newvalue" "$db" "$delim"
 
