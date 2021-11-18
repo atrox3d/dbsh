@@ -5,7 +5,8 @@
 #	s			:	substitute
 #	/^#//       :	hashtag at beginnig of line with nothing (delete)
 #	;           :
-#	t           :	if successful start next cycle (else)
+#	t           :	if substituted successful start next cycle/line
+#				:	else execute next expression
 #	;           : 
 #	s           :	substitute
 #	/^/#/       :	start-of-line with hashtag (insert)
