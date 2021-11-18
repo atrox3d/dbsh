@@ -9,7 +9,7 @@ here="$(dirname ${BASH_SOURCE[0]})"
 #	optional args
 #
 [ $# -gt 1 ] && db="$2"
-[ $# -gt 2 ] && delim="$(echo -e "$3")"
+[ $# -gt 2 ] && delim="$3"
 
 key="$1"
 delim="$(echo -e "$delim")"
