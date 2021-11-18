@@ -1,0 +1,4 @@
+#!/bin/bash
+
+db="${here}/db.txt"
+delim="\t"

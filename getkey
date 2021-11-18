@@ -1,11 +1,10 @@
 #!/bin/bash
 
 #
-#	default args
+#	default args/vars
 #
 here="$(dirname ${BASH_SOURCE[0]})"
-db="${here}/db.txt"
-delim=$'\t'
+. "${here}/.defaults"
 #
 #	optional args
 #
