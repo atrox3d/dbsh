@@ -16,6 +16,7 @@ delim="\t"
 #	values
 #
 key="$1"
+delim="$(echo -e "$delim")"
 value="$2"
 
 if ! ${here}/findkey "$key" "$db"

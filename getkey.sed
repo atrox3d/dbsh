@@ -13,6 +13,7 @@ delim=$'\t'
 [ $# -gt 2 ] && delim="$(echo -e "$3")"
 
 key="$1"
+delim="$(echo -e "$delim")"
 
 #grep "^$key" "$db" | cut -d"$delim" -f2
 #sed -n /^"$key"/p "$db" | sed "s/^$key\t//"
