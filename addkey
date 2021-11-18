@@ -35,7 +35,7 @@ value="$2"
 
 if ! ${here}/findkey "$key" "$db"
 then
-	echo -e "${key}${delim}${value}" >> "$db"
+	echo "${key}${delim}${value}" >> "$db"
 else
 	echo "key "$key" exists!"
 	exit 3
