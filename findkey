@@ -4,7 +4,15 @@
 #	default args/vars
 #
 here="$(dirname ${BASH_SOURCE[0]})"
+name="$(basename ${BASH_SOURCE[0]})"
 . "${here}/.defaults"
+#
+#	mandatory args
+#
+[ $# -eq 1 ] || {
+	echo "syntax $name key [ db ]"
+	exit 1
+}
 #
 #	optional args
 #
